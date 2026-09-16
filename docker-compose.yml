@@ -2,15 +2,15 @@ services:
   db:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: proofscreen
-      POSTGRES_PASSWORD: proofscreen
-      POSTGRES_DB: proofscreen
+      POSTGRES_USER: evident
+      POSTGRES_PASSWORD: evident
+      POSTGRES_DB: evident
     ports:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U proofscreen -d proofscreen"]
+      test: ["CMD-SHELL", "pg_isready -U evident -d evident"]
       interval: 3s
       timeout: 3s
       retries: 20
@@ -20,7 +20,7 @@ services:
     env_file: .env
     environment:
       # overrides .env so the container always reaches the db service, not localhost
-      DATABASE_URL: postgresql+asyncpg://proofscreen:proofscreen@db:5432/proofscreen
+      DATABASE_URL: postgresql+asyncpg://evident:evident@db:5432/evident
     ports:
       - "80:8000"
     volumes:

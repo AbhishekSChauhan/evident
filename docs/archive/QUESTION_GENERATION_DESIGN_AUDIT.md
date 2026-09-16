@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-06 · **Scope:** architecture only. No code, no implementation,
 no sequencing. Evidence is cited from
-[docs/QUESTION_GENERATION_AUDIT.md](docs/QUESTION_GENERATION_AUDIT.md) and
+[docs/QUESTION_GENERATION_AUDIT.md](QUESTION_GENERATION_AUDIT.md) and
 `studies/phase3/`, not re-derived.
 
 ---

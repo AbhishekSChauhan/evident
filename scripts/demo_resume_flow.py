@@ -271,7 +271,7 @@ async def run(args: argparse.Namespace) -> int:
     data = path.read_bytes()
     _install_stubs(data, mime)
 
-    print(f"\033[1mProofScreen — local candidate journey\033[0m")
+    print(f"\033[1mEvident — local candidate journey\033[0m")
     print(f"  resume    {path.name}  ({len(data):,} bytes, {mime})")
     print(f"  llm       {settings.llm_mode}  ({settings.openai_model})")
     print(f"  database  {settings.database_url}")

@@ -39,7 +39,7 @@ from api.channels.base import BaseChannel
 from api.config import settings
 from api.schemas import Channel, InboundMessage
 
-log = logging.getLogger("proofscreen.whatsapp")
+log = logging.getLogger("evident.whatsapp")
 
 TEXT_LIMIT = 4096          # Meta's body limit
 

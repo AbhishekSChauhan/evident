@@ -14,7 +14,7 @@ class Settings(BaseSettings):
 
     # --- database ---
     database_url: str = (
-        "postgresql+asyncpg://proofscreen:proofscreen@localhost:5432/proofscreen"
+        "postgresql+asyncpg://evident:evident@localhost:5432/evident"
     )
 
     # --- llm ---

@@ -30,7 +30,7 @@ from pydantic import BaseModel, ValidationError
 
 from api.config import settings
 
-log = logging.getLogger("proofscreen.llm")
+log = logging.getLogger("evident.llm")
 
 T = TypeVar("T", bound=BaseModel)
 

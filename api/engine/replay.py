@@ -81,7 +81,7 @@ from api.schemas import (
 )
 from api.tenancy import TenantScope, scoped
 
-log = logging.getLogger("proofscreen.replay")
+log = logging.getLogger("evident.replay")
 
 __all__ = ["ReplayUnavailable", "replay_evaluation", "required_state"]
 

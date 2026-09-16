@@ -1,4 +1,4 @@
-# ProofScreen API — working notes (v2)
+# Evident API — working notes (v2)
 
 FastAPI backend for the Shine 2026 hackathon (build day 10 Sep, demo 11 Sep).
 Backend only; the recruiter dashboard is a separate Next.js app consuming
@@ -6,6 +6,26 @@ Backend only; the recruiter dashboard is a separate Next.js app consuming
 candidate channel.
 
 ## Read this before proposing code
+
+**Read [docs/EVIDENT_MASTER_CONTEXT.md](docs/EVIDENT_MASTER_CONTEXT.md) first.
+It is the product source of truth.** Everything below tells you how this
+codebase is built; that document tells you what it is for, and it wins on
+questions of purpose.
+
+Any suggestion must align with its six commitments:
+
+- **evidence-first hiring** — measure demonstrated competence, not resume quality
+- **universal competence framework** — Knowledge · Execution · Problem Solving ·
+  Judgment · Ownership · Adaptability, domain-independent by design
+- **evidence graph architecture** — claims → evidence → competence → job fit
+- **recruiter outcomes** — recruiters want evidence, not a score
+- **candidate fairness** — never score presentation; a coverage gap is
+  *Unknown*, never *Bad*
+- **explainability** — every number traceable to something the candidate said
+
+**If a suggestion conflicts with the master context, explain the conflict
+instead of silently changing direction.** Naming it is the required output.
+
 
 **All process, architecture and phase documents live in `docs/`. Start at
 [docs/README.md](docs/README.md)** — it carries the binding reading order and
@@ -98,7 +118,7 @@ docker compose exec api python seed.py       # 3 candidates + 2 role profiles
 pytest -q                                    # 102 tests, sqlite + fixture mode, ~2s
 
 # no-Docker loop
-export DATABASE_URL="sqlite+aiosqlite:///./proofscreen.sqlite3"
+export DATABASE_URL="sqlite+aiosqlite:///./evident.sqlite3"
 python seed.py && uvicorn api.main:app --reload
 
 # after changing any rubric or weight
@@ -170,6 +190,20 @@ the tree and re-ranks live for any role profile.
 - **The webhook must 200 fast** — real work happens in a `BackgroundTask`.
 - **X-Hub-Signature-256 is over the RAW body.** Re-serialising parsed JSON
   changes whitespace and key order and the digest never matches.
+- **`extract_text` gates on the file EXTENSION, not the mime type**
+  (`ingest/parse.py:72-75`). A filename with no extension is rejected —
+  `resume` fails where `resume.pdf` succeeds — so the mime→filename map on the
+  WhatsApp document path is load-bearing, not cosmetic.
+- **`download_media` falls back to `"audio/ogg"` when Meta omits `mime_type`**
+  (`channels/whatsapp_cloud.py:268,276`), which silently routes an uploaded
+  document to Whisper. Guard on the **document message type** in
+  `parse_inbound`, not on the mime alone.
+- **A real Meta round trip has never been tested end to end.** Phase 3's 68
+  interviews went through the simulator. `whatsapp_mode` defaults to `dry-run`
+  and `WHATSAPP_ACCESS_TOKEN` is empty in `.env.example`. Before any live run:
+  use a **system user token** (a 24-hour test token expires mid-session), and
+  re-check the webhook after any tunnel restart — a reassigned hostname
+  detaches it silently.
 - **The 24-hour window**: free-form text only within 24h of the candidate's
   last message. The opt-in flow exists to open it.
 - **CORS**: wildcard origins and `allow_credentials=True` are mutually

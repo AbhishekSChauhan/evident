@@ -7,7 +7,7 @@ import logging
 import re
 from pathlib import Path
 
-log = logging.getLogger("proofscreen.ingest")
+log = logging.getLogger("evident.ingest")
 
 SUPPORTED = {".pdf", ".docx", ".txt", ".md"}
 MAX_BYTES = 10 * 1024 * 1024

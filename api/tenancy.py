@@ -51,7 +51,7 @@ from api.models import (
     Tenant,
 )
 
-log = logging.getLogger("proofscreen.tenancy")
+log = logging.getLogger("evident.tenancy")
 
 API_KEY_HEADER = "X-API-Key"
 

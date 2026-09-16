@@ -44,7 +44,10 @@ edit what — see the ownership note below.
 | [CLAIM_INVENTORY.md](CLAIM_INVENTORY.md) | Recall-first extraction — the `CLAIM_INVENTORY` flag, blocked on `graph.py` |
 | [EXTRACTION_ARCHITECTURE_REVIEW.md](EXTRACTION_ARCHITECTURE_REVIEW.md) | Extraction ranking/budget/typing defects (E1–E7), measured and mostly fixed |
 | [CLASSIFICATION_PHASE2_REVIEW.md](CLASSIFICATION_PHASE2_REVIEW.md) | Touching `software_engineering`'s claim-type keywords — the fallback-collapse measurement, precision audit and what was deliberately not shipped |
+| [QUESTION_GENERATION_FINDINGS.md](QUESTION_GENERATION_FINDINGS.md) | Touching question generation or the validator. Merges seven audits over the Phase 3 corpus (519 attempts). **§1 survives the forensic-generator switch, §3 does not** — read the warning at the top before acting on any number |
+| [DEMO_RUNBOOK.md](DEMO_RUNBOOK.md) | Showing the product to anyone. Script, failure matrix, and what not to say. **Verify the scores against a fresh `seed.py --reset` first** — the ones it inherited are stale |
 | [PRODUCTION_READINESS.md](PRODUCTION_READINESS.md) | Before deploying anything |
+| [STATE_MACHINES.md](STATE_MACHINES.md) | Orienting in the control flow — the four nested state machines (session, question turn, evidence coverage, evaluation), every transition with the line that writes it, and the flags that change the shapes. **Derived from `api/` at `2659f20`, not from a plan** — if it disagrees with the code, the code wins |
 | [REPO_STRUCTURE.md](REPO_STRUCTURE.md) | Orienting in the tree; the data-flow one-liners |
 | [PLATFORM_ARCHITECTURE_REVIEW.md](PLATFORM_ARCHITECTURE_REVIEW.md) | Scaling questions — cohorts, families, multi-tenant |
 | [PHASE_3_VALIDATION_STUDY.md](PHASE_3_VALIDATION_STUDY.md) | **Active.** Phase 3 — Real Interview Validation Study. Measures `question.validate()` against questions a live model actually generates, because the corpus reads 100% and can therefore only detect regression. Approved 2026-09-05 |
@@ -52,19 +55,18 @@ edit what — see the ownership note below.
 | [PHASE_4_TASKS.md](PHASE_4_TASKS.md) | **Active.** Phase 4 — Evaluation Integrity & Production Readiness. Task-level spec, execution log and acceptance report for D6–D10; the phase-level plan it is subordinate to is the "Phase 4" half of `PHASE_2_EXECUTION_PLAN.md`. Records two deviations under Rule 9: the entry condition was unmet, and `schemas.py` was edited additively |
 | [PHASE_2_EXECUTION_PLAN.md](PHASE_2_EXECUTION_PLAN.md) | **Active.** Phase 1 exited 2026-09-05. Phase 2 is Question Quality Infrastructure; the previously-approved D6–D10 plan is preserved in the same file as **Phase 4** (renumbered from Phase 3 on 2026-09-05), still blocked on its own entry condition — M4a has produced a number. Task specs in [tasks/](tasks/) |
 
-## Superseded — history, not instructions
+## Archive — history, not instructions
 
-Kept because the reasoning is worth having, but **do not take direction from
-them**; where they disagree with the numbered list above, the numbered list
-wins.
+28 documents in [`archive/`](archive/) as of 2026-09-17: the superseded plans,
+seven question audits now merged into `QUESTION_GENERATION_FINDINGS.md`, ten
+design documents for two workstreams that have since shipped, and five one-off
+investigations. The seven hackathon demo documents were **deleted** once
+`DEMO_RUNBOOK.md` had taken what was still useful — `git show` recovers them.
 
-| Document | Superseded by |
-|---|---|
-| [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) | `PHASE_1_TASKS.md` |
-| [EXECUTION_PLAN.md](EXECUTION_PLAN.md) | `PHASE_1_EXECUTION_PLAN.md` |
-| [SHIP_PLAN.md](SHIP_PLAN.md) | `PHASE_1_EXECUTION_PLAN.md` |
-| [PLAN_REVIEW.md](PLAN_REVIEW.md) | Critique of the above; its conclusions are folded into the standard |
-| [ARCHITECTURE_AUDIT.md](ARCHITECTURE_AUDIT.md) | `ARCHITECTURE_LOCK_v1.md` |
+**Do not take direction from anything in there.** Where it disagrees with the
+numbered list above, the numbered list wins.
+[`archive/README.md`](archive/README.md) says why each group moved, and which
+six look archivable but are cited from code and must not be.
 
 ---
 
@@ -82,8 +84,11 @@ A publishes from `taxonomy.py` in P1-06. B reads it in `graph.py` and calls
 into A's modules for nothing else. Its shape must not change after B starts
 P1-08b without telling them.
 
-**The planning-to-code ratio is a known risk, already logged.** 21 documents
-sit in this folder. `EXECUTION_STANDARD.md` proposes C2 as the guardrail — *no
+**The planning-to-code ratio is a known risk, already logged.** 28 documents
+sit in this folder, down from 60. `EXECUTION_STANDARD.md` proposes C2 as the guardrail — *no
 phase may add more planning documents than it merges implementation tasks* —
 and notes Phase 1's documentation budget is already spent. Adding another
 document here is a decision, not a default. Prefer editing one of these.
+
+The 2026-09-17 triage cut `docs/` from 60 files to 28 by archiving 34 and
+merging 14 into two. That bought room; it did not repeal C2.

@@ -1,4 +1,4 @@
-# ProofScreen API — working notes (v2)
+# Evident API — working notes (v2)
 
 FastAPI backend for the Shine 2026 hackathon (build day 10 Sep, demo 11 Sep).
 Backend only; the recruiter dashboard is a separate Next.js app consuming
@@ -98,7 +98,7 @@ docker compose exec api python seed.py       # 3 candidates + 2 role profiles
 pytest -q                                    # 102 tests, sqlite + fixture mode, ~2s
 
 # no-Docker loop
-export DATABASE_URL="sqlite+aiosqlite:///./proofscreen.sqlite3"
+export DATABASE_URL="sqlite+aiosqlite:///./evident.sqlite3"
 python seed.py && uvicorn api.main:app --reload
 
 # after changing any rubric or weight

@@ -67,7 +67,7 @@ from api.taxonomy import (
     resolve_family,
 )
 
-log = logging.getLogger("proofscreen.dev")
+log = logging.getLogger("evident.dev")
 
 router = APIRouter(prefix="/api/dev", tags=["dev"])
 

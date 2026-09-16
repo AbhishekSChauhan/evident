@@ -1,6 +1,6 @@
 # Forensic review — question quality on `Abhishek-Singh-Resume-New.pdf`
 
-Companion to [RESUME_PIPELINE_TRACE.md](RESUME_PIPELINE_TRACE.md). Claims, question
+Companion to [RESUME_PIPELINE_TRACE.md](../../studies/RESUME_PIPELINE_TRACE.md). Claims, question
 text, probe levels, `source`, `attempts` and `violations_json` are taken from
 that trace's persisted `questions` rows. Everything else here was **measured**,
 not reasoned about: four ablations, 82 generated questions, real `gpt-4o`,

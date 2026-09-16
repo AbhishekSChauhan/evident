@@ -31,7 +31,7 @@ from api.taxonomy import (
     resolve_family,
 )
 
-log = logging.getLogger("proofscreen.extract")
+log = logging.getLogger("evident.extract")
 
 MAX_RESUME_CHARS = 8000
 MIN_CLAIM_SCORE = 2

@@ -28,7 +28,7 @@ from api.engine.job_requirements import (
 )
 from api.tenancy import TenantScope, current_tenant
 
-log = logging.getLogger("proofscreen.job_fit_api")
+log = logging.getLogger("evident.job_fit_api")
 
 router = APIRouter(prefix="/api", tags=["job-fit"])
 

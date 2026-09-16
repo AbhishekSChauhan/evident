@@ -27,7 +27,7 @@ from api.llm import complete_json, load_prompt
 from api.schemas import Dimension, GeneratedQuestion, ProbeLevel
 from api.taxonomy import claim_type_label, fact_keys, family_label
 
-log = logging.getLogger("proofscreen.question")
+log = logging.getLogger("evident.question")
 
 _WS = re.compile(r"\s+")
 

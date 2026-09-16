@@ -83,7 +83,7 @@ from api.schemas import (
 from api.taxonomy import claim_type_label, default_claim_weights
 from api.tenancy import TenantScope, scoped
 
-log = logging.getLogger("proofscreen.orchestrator")
+log = logging.getLogger("evident.orchestrator")
 
 
 def _trace_value(value: object) -> str:

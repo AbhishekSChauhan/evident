@@ -26,7 +26,7 @@ from sqlalchemy.pool import StaticPool
 from api.config import settings
 from api.models import Base
 
-log = logging.getLogger("proofscreen.db")
+log = logging.getLogger("evident.db")
 
 _is_sqlite = settings.database_url.startswith("sqlite")
 

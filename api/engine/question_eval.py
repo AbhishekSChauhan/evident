@@ -68,6 +68,22 @@ class QuestionQualityEvaluation(BaseModel):
     question_quality_score: int = Field(
         ..., ge=0, le=100, description="Overall weighted question quality score (0-100)"
     )
+    # Binary Quality Flags (Pass/Fail)
+    has_concrete_anchor: bool = Field(
+        default=False, description="Is a concrete tool, artifact, process, decision, or incident anchor present?"
+    )
+    is_single_ask: bool = Field(
+        default=True, description="Does the question focus on a single cognitive ask without multiple question marks or compounding questions?"
+    )
+    is_jargon_free: bool = Field(
+        default=True, description="Is the question free of robotic audit jargon?"
+    )
+    is_claim_echo_clean: bool = Field(
+        default=True, description="Is the question free of direct copy-pasted claim verbatim framing?"
+    )
+    binary_pass: bool = Field(
+        default=False, description="Passes all binary quality assertions"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -245,6 +261,13 @@ def evaluate_question_quality_deterministic(
     evidence_yield_score = 75
     dimension_alignment_score = 75
 
+    # Compute explicit Binary Quality Flags
+    has_concrete_anchor = anchor_score >= 80 or anchor_type != "none"
+    is_single_ask = (lower_text.count("?") <= 1) and not bool(re.search(r"\band what\b|\band also\b|\bas well as\b", lower_text))
+    is_jargon_free = not bool(_AUDIT_JARGON_RE.search(lower_text))
+    is_claim_echo_clean = claim_echo_score <= 45 and framing_type != "claim_reference"
+    binary_pass = has_concrete_anchor and is_single_ask and is_jargon_free and is_claim_echo_clean
+
     return QuestionQualityEvaluation(
         answerability_score=answerability_score,
         conversationality_score=conversationality_score,
@@ -253,6 +276,11 @@ def evaluate_question_quality_deterministic(
         evidence_yield_score=evidence_yield_score,
         dimension_alignment_score=dimension_alignment_score,
         question_quality_score=final_quality_score,
+        has_concrete_anchor=has_concrete_anchor,
+        is_single_ask=is_single_ask,
+        is_jargon_free=is_jargon_free,
+        is_claim_echo_clean=is_claim_echo_clean,
+        binary_pass=binary_pass,
     )
 
 

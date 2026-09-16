@@ -1,8 +1,8 @@
-# ProofScreen — API
+# Evident — API
 
 Resume in, **evidence graph** out.
 
-A candidate uploads a resume. ProofScreen extracts their claims, probes each
+A candidate uploads a resume. Evident extracts their claims, probes each
 one over WhatsApp through five levels, and turns the answers into a scored
 evidence graph where every point traces back to something the candidate
 actually said.
@@ -68,7 +68,7 @@ Without Docker:
 ```bash
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-export DATABASE_URL="sqlite+aiosqlite:///./proofscreen.sqlite3"
+export DATABASE_URL="sqlite+aiosqlite:///./evident.sqlite3"
 python seed.py && uvicorn api.main:app --reload
 ```
 

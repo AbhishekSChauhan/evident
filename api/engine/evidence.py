@@ -46,7 +46,7 @@ from api.schemas import (
 )
 from api.taxonomy import fact_keys, family_vocabulary, is_known_fact_key
 
-log = logging.getLogger("proofscreen.evidence")
+log = logging.getLogger("evident.evidence")
 
 QUOTE_MAX = 240
 

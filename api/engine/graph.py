@@ -73,7 +73,7 @@ from api.taxonomy import (
     resolve_family,
 )
 
-log = logging.getLogger("proofscreen.graph")
+log = logging.getLogger("evident.graph")
 
 
 def _load_dimensions(payload: str | None) -> dict[str, DimensionScore]:

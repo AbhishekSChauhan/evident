@@ -70,5 +70,10 @@ Return ONLY valid JSON matching this schema:
   "anchor_score": 100,
   "evidence_yield_score": 95,
   "dimension_alignment_score": 90,
-  "question_quality_score": 92
+  "question_quality_score": 92,
+  "has_concrete_anchor": true,
+  "is_single_ask": true,
+  "is_jargon_free": true,
+  "is_claim_echo_clean": true,
+  "binary_pass": true
 }

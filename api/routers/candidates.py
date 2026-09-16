@@ -38,7 +38,7 @@ from api.schemas import (
 from api.taxonomy import claim_type_label, default_claim_weights, family_label, resolve_family
 from api.tenancy import TenantScope, current_tenant
 
-log = logging.getLogger("proofscreen.candidates")
+log = logging.getLogger("evident.candidates")
 
 router = APIRouter(prefix="/api/candidates", tags=["candidate"])
 

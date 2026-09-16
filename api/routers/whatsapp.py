@@ -44,7 +44,7 @@ from api.schemas import Badge, Channel, InboundMessage, SessionState
 from api.stt import transcribe_media_id
 from api.tenancy import TenantScope
 
-log = logging.getLogger("proofscreen.webhook")
+log = logging.getLogger("evident.webhook")
 
 router = APIRouter(prefix="/api/webhooks", tags=["whatsapp"])
 

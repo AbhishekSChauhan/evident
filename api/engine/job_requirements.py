@@ -18,7 +18,7 @@ from pydantic import BaseModel, Field
 from api.config import settings
 from api.llm import complete_json, load_prompt
 
-log = logging.getLogger("proofscreen.job_requirements")
+log = logging.getLogger("evident.job_requirements")
 
 VALID_CATEGORIES = {"SKILL", "COMPETENCY", "DOMAIN"}
 

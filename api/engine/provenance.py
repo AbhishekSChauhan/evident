@@ -56,7 +56,7 @@ from api.engine.signals import RUBRIC_VERSION
 from api.schemas import ProvenanceOut
 from api.taxonomy import taxonomy_hash, taxonomy_version
 
-log = logging.getLogger("proofscreen.provenance")
+log = logging.getLogger("evident.provenance")
 
 APP_VERSION = "2.0.0"
 

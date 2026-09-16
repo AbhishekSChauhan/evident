@@ -1,12 +1,12 @@
 """
-ProofScreen API — evidence-graph competence verification.
+Evident API — evidence-graph competence verification.
 
 Backend only. The recruiter dashboard is a separate Next.js app, so this
 process serves JSON and nothing else.
 
 THE ONE-PARAGRAPH PITCH, FOR ANYONE READING THIS FILE FIRST
 -----------------------------------------------------------
-A resume is a list of claims. ProofScreen extracts them, probes each one over
+A resume is a list of claims. Evident extracts them, probes each one over
 WhatsApp through five levels (validate, operational, incident, decision,
 outcome), and extracts COUNTABLE SIGNALS from the answers — quantities,
 process steps, complete cause-action-outcome chains, tools with described
@@ -42,7 +42,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)-7s %(name)-28s %(message)s",
 )
-log = logging.getLogger("proofscreen")
+log = logging.getLogger("evident")
 
 
 @asynccontextmanager
@@ -50,7 +50,7 @@ async def lifespan(app: FastAPI):
     await init_models()          # no Alembic by design
     stamp = provenance.current()
     log.info(
-        "ProofScreen up — llm=%s model=%s whatsapp=%s max_questions=%d families=%d",
+        "Evident up — llm=%s model=%s whatsapp=%s max_questions=%d families=%d",
         settings.llm_mode, settings.openai_model, settings.whatsapp_mode,
         settings.max_questions, len(family_keys()),
     )
@@ -75,7 +75,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="ProofScreen API",
+    title="Evident API",
     version="2.0.0",
     summary="Turns resume claims into a scored, quotable evidence graph.",
     description=(

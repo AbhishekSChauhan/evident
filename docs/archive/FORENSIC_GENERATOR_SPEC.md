@@ -5,9 +5,9 @@ Optimisation target: **"Did this person actually do the work, or did they only
 write it on a resume?"** — authorship verification, not interview quality, not
 skill assessment, not rule compliance.
 
-Evidence base: [PROBE_ARCHITECTURE_FACTUAL_AUDIT.md](docs/PROBE_ARCHITECTURE_FACTUAL_AUDIT.md),
-[PROBE_LEVEL_FORENSIC_AUDIT.md](docs/PROBE_LEVEL_FORENSIC_AUDIT.md).
-Converges with [QUESTIONING_PHILOSOPHY.md](docs/QUESTIONING_PHILOSOPHY.md).
+Evidence base: [PROBE_ARCHITECTURE_FACTUAL_AUDIT.md](PROBE_ARCHITECTURE_FACTUAL_AUDIT.md),
+[PROBE_LEVEL_FORENSIC_AUDIT.md](PROBE_LEVEL_FORENSIC_AUDIT.md).
+Converges with [QUESTIONING_PHILOSOPHY.md](../QUESTIONING_PHILOSOPHY.md).
 
 ---
 

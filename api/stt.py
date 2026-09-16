@@ -44,7 +44,7 @@ import httpx
 from api.channels.whatsapp_cloud import whatsapp_channel
 from api.config import settings
 
-log = logging.getLogger("proofscreen.stt")
+log = logging.getLogger("evident.stt")
 
 MAX_AUDIO_BYTES = 25 * 1024 * 1024   # Whisper's own limit
 

@@ -5,9 +5,9 @@ sequencing.
 **Data:** 305 Tier-B interview turns (simulator conditioned on the question —
 the only tier where a question can cause an answer), with the full stored
 `signals_json` for each, plus all 519 generation attempts.
-**Companion documents:** [QUESTION_GENERATION_AUDIT.md](docs/QUESTION_GENERATION_AUDIT.md)
-(measurement), [QUESTION_GENERATION_DESIGN_AUDIT.md](docs/QUESTION_GENERATION_DESIGN_AUDIT.md)
-(stage responsibilities), [QUESTIONING_PHILOSOPHY.md](docs/QUESTIONING_PHILOSOPHY.md)
+**Companion documents:** [QUESTION_GENERATION_AUDIT.md](QUESTION_GENERATION_AUDIT.md)
+(measurement), [QUESTION_GENERATION_DESIGN_AUDIT.md](QUESTION_GENERATION_DESIGN_AUDIT.md)
+(stage responsibilities), [QUESTIONING_PHILOSOPHY.md](../QUESTIONING_PHILOSOPHY.md)
 (first-principles interview design).
 
 ---

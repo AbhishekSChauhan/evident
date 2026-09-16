@@ -62,7 +62,7 @@ from api.schemas import (
 from api.taxonomy import family_label
 from api.tenancy import TenantScope, get_owned, scoped
 
-log = logging.getLogger("proofscreen.evaluation")
+log = logging.getLogger("evident.evaluation")
 
 __all__ = [
     "EvaluationFinalized",
