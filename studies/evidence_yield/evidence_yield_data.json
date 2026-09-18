@@ -1,140 +1,11 @@
 [
   {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 0,
-    "question_id": "q_73dd1a9071",
-    "claim_id": "cl_43c9e8",
-    "move": "METRIC_DEFINITION",
-    "probe_level": "OUTCOME",
-    "question_text": "You mentioned activation. How was activation actually worked out \u2014 what counted and what did not?",
-    "answer_text": "Activation was 41% when I took it over and 63% two quarters later. We measured activation as the percentage of new signups completing their first project within seven days.",
-    "e_before": 0,
-    "e_after": 5,
-    "delta_e": 5,
-    "dimension_growth": {
-      "SPECIFICITY": 60,
-      "PROCESS": 31,
-      "METRIC_OWNERSHIP": 45,
-      "EXECUTION": 40
-    }
-  },
-  {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 1,
-    "question_id": "q_856863f3cc",
-    "claim_id": "cl_43c9e8",
-    "move": "FAILURE",
-    "probe_level": "INCIDENT",
-    "question_text": "Tell me about a time the first-run flow did not go the way you expected. What happened?",
-    "answer_text": "Every Monday I reviewed the funnel drop-off step by step, then picked the single worst step for that week's build. We tracked each step's completion rate in the product analytics dashboard.",
-    "e_before": 5,
-    "e_after": 9,
-    "delta_e": 4,
-    "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 57,
-      "AUTHENTICITY": 33,
-      "EXECUTION": 50,
-      "PROBLEM_SOLVING": 33
-    }
-  },
-  {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 2,
-    "question_id": "q_b4fec57030",
-    "claim_id": "cl_da5b0a",
-    "move": "OPERATING_CONTEXT",
-    "probe_level": "OPERATIONAL",
-    "question_text": "When you were working on the user interviews, what did you look at first?",
-    "answer_text": "I ran 40 user interviews across three segments over six weeks. The top pain point was that people could not tell whether their import had actually worked.",
-    "e_before": 0,
-    "e_after": 3,
-    "delta_e": 3,
-    "dimension_growth": {
-      "SPECIFICITY": 60,
-      "PROCESS": 12,
-      "METRIC_OWNERSHIP": 15,
-      "EXECUTION": 8
-    }
-  },
-  {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 3,
-    "question_id": "q_496c8559e8",
-    "claim_id": "cl_da5b0a",
-    "move": "PEOPLE",
-    "probe_level": "INCIDENT",
-    "question_text": "Who else was close to the user interviews, and what did they do when it went wrong?",
-    "answer_text": "First I recruited from the churned cohort rather than active users, then I ran every interview myself, and I tagged each transcript against the problem statement so we could count how often each pain point came up.",
-    "e_before": 3,
-    "e_after": 8,
-    "delta_e": 5,
-    "dimension_growth": {
-      "SPECIFICITY": 40,
-      "PROCESS": 44,
-      "CAUSAL_REASONING": 20,
-      "EXECUTION": 24
-    }
-  },
-  {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 4,
-    "question_id": "q_1a5b1c19d0",
-    "claim_id": "cl_c80615",
-    "move": "PERTURB",
-    "probe_level": "TRANSFER",
-    "question_text": "Suppose you had taken on the first-run flow instead, with the same approach you used on the experiments against a single north star metric. Where would you start?",
-    "answer_text": "We ran 18 experiments that year and shipped 5 of them. Significance was computed at 95% with a two-week minimum run, so a test that could not reach the sample size never started.",
-    "e_before": 0,
-    "e_after": 10,
-    "delta_e": 10,
-    "dimension_growth": {
-      "SPECIFICITY": 100,
-      "PROCESS": 69,
-      "METRIC_OWNERSHIP": 45,
-      "CAUSAL_REASONING": 20,
-      "EXECUTION": 72
-    }
-  },
-  {
-    "session_id": "s_f17df7b971",
-    "candidate_name": "Maya Krishnan",
-    "job_family": "product",
-    "turn_index": 5,
-    "question_id": "q_bb1a46dffe",
-    "claim_id": "cl_c80615",
-    "move": "OPERATING_CONTEXT",
-    "probe_level": "OPERATIONAL",
-    "question_text": "When you were working on the experiments against a single north star metric, what did you look at first?",
-    "answer_text": "The hypothesis was that the second step was where people dropped, so we removed it entirely, and completion rose nine points.",
-    "e_before": 10,
-    "e_after": 13,
-    "delta_e": 3,
-    "dimension_growth": {
-      "PROCESS": 31,
-      "CAUSAL_REASONING": 50,
-      "EXECUTION": 26,
-      "PROBLEM_SOLVING": 33,
-      "ADAPTABILITY": 50
-    }
-  },
-  {
-    "session_id": "s_22c64c120b",
+    "session_id": "s_c2b0ea16f5",
     "candidate_name": "Priya Raghavan",
     "job_family": "bpo_operations",
     "turn_index": 0,
-    "question_id": "q_c1156c96e8",
-    "claim_id": "cl_935d0d",
+    "question_id": "q_69f0d03e11",
+    "claim_id": "cl_2aa775",
     "move": "OPERATING_CONTEXT",
     "probe_level": "OPERATIONAL",
     "question_text": "When you were working on the team, what did you look at first?",
@@ -143,19 +14,18 @@
     "e_after": 7,
     "delta_e": 7,
     "dimension_growth": {
-      "SPECIFICITY": 80,
-      "PROCESS": 81,
-      "METRIC_OWNERSHIP": 35,
-      "EXECUTION": 57
+      "KNOWLEDGE": 27,
+      "EXECUTION": 57,
+      "OWNERSHIP": 33
     }
   },
   {
-    "session_id": "s_22c64c120b",
+    "session_id": "s_c2b0ea16f5",
     "candidate_name": "Priya Raghavan",
     "job_family": "bpo_operations",
     "turn_index": 1,
-    "question_id": "q_13e0387a06",
-    "claim_id": "cl_935d0d",
+    "question_id": "q_f4fa34ec9a",
+    "claim_id": "cl_2aa775",
     "move": "OPERATIONAL",
     "probe_level": "OPERATIONAL",
     "question_text": "What interface boundary or handoff contract did you establish with that team?",
@@ -164,18 +34,18 @@
     "e_after": 10,
     "delta_e": 3,
     "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 19,
-      "EXECUTION": 25
+      "KNOWLEDGE": 13,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_22c64c120b",
+    "session_id": "s_c2b0ea16f5",
     "candidate_name": "Priya Raghavan",
     "job_family": "bpo_operations",
     "turn_index": 2,
-    "question_id": "q_c0104c28a2",
-    "claim_id": "cl_12e2cd",
+    "question_id": "q_9fca12a6e5",
+    "claim_id": "cl_2b712d",
     "move": "METRIC_DEFINITION",
     "probe_level": "OUTCOME",
     "question_text": "You mentioned CSAT. How was CSAT actually worked out \u2014 what counted and what did not?",
@@ -184,20 +54,18 @@
     "e_after": 8,
     "delta_e": 8,
     "dimension_growth": {
-      "SPECIFICITY": 80,
-      "PROCESS": 44,
-      "METRIC_OWNERSHIP": 45,
-      "CAUSAL_REASONING": 20,
-      "EXECUTION": 48
+      "KNOWLEDGE": 13,
+      "EXECUTION": 48,
+      "ADAPTABILITY": 30
     }
   },
   {
-    "session_id": "s_22c64c120b",
+    "session_id": "s_c2b0ea16f5",
     "candidate_name": "Priya Raghavan",
     "job_family": "bpo_operations",
     "turn_index": 3,
-    "question_id": "q_215ed11c24",
-    "claim_id": "cl_12e2cd",
+    "question_id": "q_aba0720ced",
+    "claim_id": "cl_2b712d",
     "move": "FAILURE",
     "probe_level": "INCIDENT",
     "question_text": "Tell me about a time the escalation workflow did not go the way you expected. What happened?",
@@ -206,19 +74,18 @@
     "e_after": 12,
     "delta_e": 4,
     "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 25,
-      "TOOL_FAMILIARITY": 5,
-      "EXECUTION": 27
+      "KNOWLEDGE": 14,
+      "EXECUTION": 27,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_22c64c120b",
+    "session_id": "s_c2b0ea16f5",
     "candidate_name": "Priya Raghavan",
     "job_family": "bpo_operations",
     "turn_index": 4,
-    "question_id": "q_58d47f1a63",
-    "claim_id": "cl_553a00",
+    "question_id": "q_cab42872e9",
+    "claim_id": "cl_a12ae0",
     "move": "PEOPLE",
     "probe_level": "INCIDENT",
     "question_text": "Who else was close to the call opening scripts, and what did they do when it went wrong?",
@@ -229,12 +96,32 @@
     "dimension_growth": {}
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_c2b0ea16f5",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 5,
+    "question_id": "q_205a30b7f3",
+    "claim_id": "cl_a12ae0",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the team instead, with the same approach you used on the call opening scripts. Where would you start?",
+    "answer_text": "I don't remember the details of how we measured it.",
+    "e_before": 0,
+    "e_after": 1,
+    "delta_e": 1,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 0,
-    "question_id": "q_a1c6428042",
-    "claim_id": "cl_017200",
+    "question_id": "q_d1cb6bc8fb",
+    "claim_id": "cl_20ae6d",
     "move": "OPERATING_CONTEXT",
     "probe_level": "OPERATIONAL",
     "question_text": "When you were working on the team, what did you look at first?",
@@ -243,19 +130,18 @@
     "e_after": 3,
     "delta_e": 3,
     "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 38,
-      "METRIC_OWNERSHIP": 20,
-      "EXECUTION": 25
+      "KNOWLEDGE": 13,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 1,
-    "question_id": "q_54177852e1",
-    "claim_id": "cl_017200",
+    "question_id": "q_4c086ef60a",
+    "claim_id": "cl_20ae6d",
     "move": "OPERATIONAL",
     "probe_level": "OPERATIONAL",
     "question_text": "What interface boundary or handoff contract did you establish with that team?",
@@ -266,12 +152,12 @@
     "dimension_growth": {}
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 2,
-    "question_id": "q_fda6b82757",
-    "claim_id": "cl_dcfb4a",
+    "question_id": "q_ff4b5a3885",
+    "claim_id": "cl_75526e",
     "move": "METRIC_DEFINITION",
     "probe_level": "OUTCOME",
     "question_text": "You mentioned SLA attainment. How was SLA attainment actually worked out \u2014 what counted and what did not?",
@@ -280,20 +166,18 @@
     "e_after": 6,
     "delta_e": 6,
     "dimension_growth": {
-      "SPECIFICITY": 60,
-      "PROCESS": 31,
-      "METRIC_OWNERSHIP": 100,
-      "KNOWLEDGE": 33,
-      "EXECUTION": 40
+      "KNOWLEDGE": 47,
+      "EXECUTION": 40,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 3,
-    "question_id": "q_98fa3357b1",
-    "claim_id": "cl_dcfb4a",
+    "question_id": "q_9a50e148fe",
+    "claim_id": "cl_75526e",
     "move": "OUTCOME",
     "probe_level": "OUTCOME",
     "question_text": "What specific anomaly on that dashboard triggered your technical intervention?",
@@ -302,19 +186,18 @@
     "e_after": 16,
     "delta_e": 10,
     "dimension_growth": {
-      "SPECIFICITY": 40,
-      "PROCESS": 50,
-      "TOOL_FAMILIARITY": 50,
-      "EXECUTION": 48
+      "KNOWLEDGE": 13,
+      "EXECUTION": 48,
+      "OWNERSHIP": 16
     }
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 4,
-    "question_id": "q_ac0441f683",
-    "claim_id": "cl_f7e6c7",
+    "question_id": "q_acf90a9413",
+    "claim_id": "cl_f76905",
     "move": "FAILURE",
     "probe_level": "INCIDENT",
     "question_text": "Tell me about a time the script standardisation did not go the way you expected. What happened?",
@@ -323,21 +206,18 @@
     "e_after": 6,
     "delta_e": 6,
     "dimension_growth": {
-      "SPECIFICITY": 60,
-      "PROCESS": 38,
-      "METRIC_OWNERSHIP": 80,
-      "TOOL_FAMILIARITY": 5,
-      "KNOWLEDGE": 17,
-      "EXECUTION": 40
+      "KNOWLEDGE": 30,
+      "EXECUTION": 40,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_de961cb307",
+    "session_id": "s_de58030aa9",
     "candidate_name": "Arjun Mehta",
     "job_family": "bpo_operations",
     "turn_index": 5,
-    "question_id": "q_63fcb48bea",
-    "claim_id": "cl_f7e6c7",
+    "question_id": "q_743c37c4e9",
+    "claim_id": "cl_f76905",
     "move": "PEOPLE",
     "probe_level": "INCIDENT",
     "question_text": "Who else was close to the script standardisation, and what did they do when it went wrong?",
@@ -346,20 +226,19 @@
     "e_after": 13,
     "delta_e": 7,
     "dimension_growth": {
-      "SPECIFICITY": 40,
-      "PROCESS": 50,
-      "METRIC_OWNERSHIP": 20,
-      "CAUSAL_REASONING": 40,
-      "EXECUTION": 60
+      "KNOWLEDGE": 27,
+      "EXECUTION": 60,
+      "OWNERSHIP": 33,
+      "ADAPTABILITY": 60
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 0,
-    "question_id": "q_69d75f0ca0",
-    "claim_id": "cl_030e6c",
+    "question_id": "q_29ac82bf98",
+    "claim_id": "cl_375693",
     "move": "OPERATING_CONTEXT",
     "probe_level": "OPERATIONAL",
     "question_text": "When you were working on the team, what did you look at first?",
@@ -368,19 +247,16 @@
     "e_after": 3,
     "delta_e": 3,
     "dimension_growth": {
-      "SPECIFICITY": 40,
-      "PROCESS": 6,
-      "METRIC_OWNERSHIP": 35,
       "EXECUTION": 8
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 1,
-    "question_id": "q_181222a7cd",
-    "claim_id": "cl_030e6c",
+    "question_id": "q_404bb0dd26",
+    "claim_id": "cl_375693",
     "move": "OPERATIONAL",
     "probe_level": "OPERATIONAL",
     "question_text": "What interface boundary or handoff contract did you establish with that team?",
@@ -389,18 +265,17 @@
     "e_after": 5,
     "delta_e": 2,
     "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 32,
+      "KNOWLEDGE": 13,
       "EXECUTION": 24
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 2,
-    "question_id": "q_f41a98b328",
-    "claim_id": "cl_95313d",
+    "question_id": "q_3a31ef75e7",
+    "claim_id": "cl_165f7f",
     "move": "FAILURE",
     "probe_level": "INCIDENT",
     "question_text": "Tell me about a time the % improvement did not go the way you expected. What happened?",
@@ -409,18 +284,17 @@
     "e_after": 2,
     "delta_e": 2,
     "dimension_growth": {
-      "SPECIFICITY": 20,
-      "PROCESS": 31,
+      "KNOWLEDGE": 13,
       "EXECUTION": 25
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 3,
-    "question_id": "q_881291b870",
-    "claim_id": "cl_95313d",
+    "question_id": "q_ca9e82eb86",
+    "claim_id": "cl_165f7f",
     "move": "INCIDENT",
     "probe_level": "INCIDENT",
     "question_text": "What specific constraint or operational bottleneck did the customer present?",
@@ -429,17 +303,18 @@
     "e_after": 3,
     "delta_e": 1,
     "dimension_growth": {
-      "PROCESS": 25,
-      "EXECUTION": 25
+      "KNOWLEDGE": 14,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 4,
-    "question_id": "q_3a073dbcc7",
-    "claim_id": "cl_b17a75",
+    "question_id": "q_b94fb27070",
+    "claim_id": "cl_95428b",
     "move": "PERTURB",
     "probe_level": "TRANSFER",
     "question_text": "Suppose you had taken on the team instead, with the same approach you used on the advanced process optimisation. Where would you start?",
@@ -448,18 +323,19 @@
     "e_after": 1,
     "delta_e": 1,
     "dimension_growth": {
-      "CAUSAL_REASONING": 50,
+      "KNOWLEDGE": 20,
       "PROBLEM_SOLVING": 33,
+      "JUDGMENT": 13,
       "ADAPTABILITY": 50
     }
   },
   {
-    "session_id": "s_eee313983e",
+    "session_id": "s_17468d0762",
     "candidate_name": "Rohit Verma",
     "job_family": "bpo_operations",
     "turn_index": 5,
-    "question_id": "q_3669fda6da",
-    "claim_id": "cl_b17a75",
+    "question_id": "q_6d4712e1cc",
+    "claim_id": "cl_95428b",
     "move": "OPERATING_CONTEXT",
     "probe_level": "OPERATIONAL",
     "question_text": "When you were working on the advanced process optimisation, what did you look at first?",
@@ -468,5 +344,589 @@
     "e_after": 1,
     "delta_e": 0,
     "dimension_growth": {}
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 0,
+    "question_id": "q_62eb435e2c",
+    "claim_id": "cl_373399",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the first-run flow, what did you look at first?",
+    "answer_text": "Activation was 41% when I took it over and 63% two quarters later. We measured activation as the percentage of new signups completing their first project within seven days.",
+    "e_before": 0,
+    "e_after": 5,
+    "delta_e": 5,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 40
+    }
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 1,
+    "question_id": "q_3693c2c3d9",
+    "claim_id": "cl_373399",
+    "move": "METRIC_DEFINITION",
+    "probe_level": "OUTCOME",
+    "question_text": "You mentioned activation. How was activation actually worked out \u2014 what counted and what did not?",
+    "answer_text": "Every Monday I reviewed the funnel drop-off step by step, then picked the single worst step for that week's build. We tracked each step's completion rate in the product analytics dashboard.",
+    "e_before": 5,
+    "e_after": 9,
+    "delta_e": 4,
+    "dimension_growth": {
+      "KNOWLEDGE": 47,
+      "EXECUTION": 50,
+      "PROBLEM_SOLVING": 33,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 2,
+    "question_id": "q_7460004ee0",
+    "claim_id": "cl_516dea",
+    "move": "FAILURE",
+    "probe_level": "INCIDENT",
+    "question_text": "Tell me about a time the user interviews did not go the way you expected. What happened?",
+    "answer_text": "I ran 40 user interviews across three segments over six weeks. The top pain point was that people could not tell whether their import had actually worked.",
+    "e_before": 0,
+    "e_after": 3,
+    "delta_e": 3,
+    "dimension_growth": {
+      "EXECUTION": 8
+    }
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 3,
+    "question_id": "q_ca67a4b0e4",
+    "claim_id": "cl_516dea",
+    "move": "PEOPLE",
+    "probe_level": "INCIDENT",
+    "question_text": "Who else was close to the user interviews, and what did they do when it went wrong?",
+    "answer_text": "First I recruited from the churned cohort rather than active users, then I ran every interview myself, and I tagged each transcript against the problem statement so we could count how often each pain point came up.",
+    "e_before": 3,
+    "e_after": 8,
+    "delta_e": 5,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 24,
+      "OWNERSHIP": 17,
+      "ADAPTABILITY": 30
+    }
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 4,
+    "question_id": "q_79419246e4",
+    "claim_id": "cl_c830da",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the first-run flow instead, with the same approach you used on the experiments against a single north star metric. Where would you start?",
+    "answer_text": "We ran 18 experiments that year and shipped 5 of them. Significance was computed at 95% with a two-week minimum run, so a test that could not reach the sample size never started.",
+    "e_before": 0,
+    "e_after": 10,
+    "delta_e": 10,
+    "dimension_growth": {
+      "KNOWLEDGE": 27,
+      "EXECUTION": 72,
+      "ADAPTABILITY": 30
+    }
+  },
+  {
+    "session_id": "s_eea331d8f0",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 5,
+    "question_id": "q_00aaca6a3a",
+    "claim_id": "cl_c830da",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the experiments against a single north star metric, what did you look at first?",
+    "answer_text": "The hypothesis was that the second step was where people dropped, so we removed it entirely, and completion rose nine points.",
+    "e_before": 10,
+    "e_after": 13,
+    "delta_e": 3,
+    "dimension_growth": {
+      "KNOWLEDGE": 33,
+      "EXECUTION": 26,
+      "PROBLEM_SOLVING": 33,
+      "JUDGMENT": 13,
+      "ADAPTABILITY": 50
+    }
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 0,
+    "question_id": "q_a2cdb2583e",
+    "claim_id": "cl_2b31c5",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the team, what did you look at first?",
+    "answer_text": "I had 35 agents in four pods, and each pod had a senior associate reporting to me. I ran daily attendance tracking and a weekly calibration with the quality team.",
+    "e_before": 0,
+    "e_after": 8,
+    "delta_e": 8,
+    "dimension_growth": {
+      "KNOWLEDGE": 27,
+      "EXECUTION": 65,
+      "OWNERSHIP": 33
+    }
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 1,
+    "question_id": "q_d49b1beb68",
+    "claim_id": "cl_2b31c5",
+    "move": "OPERATIONAL",
+    "probe_level": "OPERATIONAL",
+    "question_text": "What interface boundary or handoff contract did you establish with that team?",
+    "answer_text": "Every morning I pulled the queue report, then ran a fifteen minute huddle, then reviewed the previous day's escalations with the two pod seniors before assigning coaching slots.",
+    "e_before": 8,
+    "e_after": 13,
+    "delta_e": 5,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 35,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 2,
+    "question_id": "q_e169ed4a8b",
+    "claim_id": "cl_99ebd5",
+    "move": "FAILURE",
+    "probe_level": "INCIDENT",
+    "question_text": "Tell me about a time the escalation workflow did not go the way you expected. What happened?",
+    "answer_text": "Billing complaints were about 40% of our negative feedback, so we redesigned the escalation workflow and introduced callback SLAs, and CSAT moved from 78 to 92 over about eleven weeks.",
+    "e_before": 0,
+    "e_after": 9,
+    "delta_e": 9,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 50,
+      "ADAPTABILITY": 30
+    }
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 3,
+    "question_id": "q_4e7a35c4d5",
+    "claim_id": "cl_99ebd5",
+    "move": "METRIC_DEFINITION",
+    "probe_level": "OUTCOME",
+    "question_text": "You mentioned CSAT. How was CSAT actually worked out \u2014 what counted and what did not?",
+    "answer_text": "CSAT is measured from the post-interaction survey, as the percentage of 4 and 5 ratings out of all responses. I reviewed it in Zendesk every Monday against the reopen report.",
+    "e_before": 9,
+    "e_after": 13,
+    "delta_e": 4,
+    "dimension_growth": {
+      "KNOWLEDGE": 14,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 4,
+    "question_id": "q_114adb3a87",
+    "claim_id": "cl_68e8cc",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the team instead, with the same approach you used on the call opening scripts. Where would you start?",
+    "answer_text": "AHT came down a bit after the script rewrite but I don't have the exact numbers in front of me now.",
+    "e_before": 0,
+    "e_after": 0,
+    "delta_e": 0,
+    "dimension_growth": {}
+  },
+  {
+    "session_id": "s_e2f6dbb136",
+    "candidate_name": "Priya Raghavan",
+    "job_family": "bpo_operations",
+    "turn_index": 5,
+    "question_id": "q_3a3697febb",
+    "claim_id": "cl_68e8cc",
+    "move": "PEOPLE",
+    "probe_level": "INCIDENT",
+    "question_text": "Who else was close to the call opening scripts, and what did they do when it went wrong?",
+    "answer_text": "I don't remember the details of how we measured it.",
+    "e_before": 0,
+    "e_after": 0,
+    "delta_e": 0,
+    "dimension_growth": {}
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 0,
+    "question_id": "q_58f9eed065",
+    "claim_id": "cl_b5485a",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the team, what did you look at first?",
+    "answer_text": "It was a team effort across the floor, I supported the initiative on the quality side.",
+    "e_before": 0,
+    "e_after": 3,
+    "delta_e": 3,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 1,
+    "question_id": "q_1135634f22",
+    "claim_id": "cl_b5485a",
+    "move": "OPERATIONAL",
+    "probe_level": "OPERATIONAL",
+    "question_text": "What interface boundary or handoff contract did you establish with that team?",
+    "answer_text": "I don't remember the specifics of the team structure now.",
+    "e_before": 3,
+    "e_after": 3,
+    "delta_e": 0,
+    "dimension_growth": {}
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 2,
+    "question_id": "q_6cb523f3b8",
+    "claim_id": "cl_be9c8f",
+    "move": "FAILURE",
+    "probe_level": "INCIDENT",
+    "question_text": "Got it. Tell me about a time the roster model did not go the way you expected. What happened?",
+    "answer_text": "SLA is the percentage of calls answered within 30 seconds. We held 97% across four queues and I reported it daily on the operations dashboard.",
+    "e_before": 0,
+    "e_after": 7,
+    "delta_e": 7,
+    "dimension_growth": {
+      "KNOWLEDGE": 47,
+      "EXECUTION": 48,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 3,
+    "question_id": "q_242fef88fe",
+    "claim_id": "cl_be9c8f",
+    "move": "INCIDENT",
+    "probe_level": "INCIDENT",
+    "question_text": "What specific anomaly on that dashboard triggered your technical intervention?",
+    "answer_text": "I rebuilt the roster in Excel with a 12% shrinkage buffer and reviewed it every Monday against the forecast, then adjusted the interval-level staffing for the 6pm to 9pm peak.",
+    "e_before": 7,
+    "e_after": 17,
+    "delta_e": 10,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 40,
+      "OWNERSHIP": 16
+    }
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 4,
+    "question_id": "q_06df525f39",
+    "claim_id": "cl_0b732c",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the team instead, with the same approach you used on the script standardisation. Where would you start?",
+    "answer_text": "AHT was 520 seconds when I took over and 430 when I left, measured as talk time plus hold plus after call work, averaged per agent per day in Genesys.",
+    "e_before": 0,
+    "e_after": 6,
+    "delta_e": 6,
+    "dimension_growth": {
+      "KNOWLEDGE": 30,
+      "EXECUTION": 40,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_5f90833b2d",
+    "candidate_name": "Arjun Mehta",
+    "job_family": "bpo_operations",
+    "turn_index": 5,
+    "question_id": "q_24000e1347",
+    "claim_id": "cl_0b732c",
+    "move": "PEOPLE",
+    "probe_level": "INCIDENT",
+    "question_text": "Who else was close to the script standardisation, and what did they do when it went wrong?",
+    "answer_text": "I segmented calls by issue type first, because the average was hiding the problem. Password resets were 90 seconds and billing disputes were 14 minutes, so I rewrote only the billing script and left the rest alone.",
+    "e_before": 6,
+    "e_after": 13,
+    "delta_e": 7,
+    "dimension_growth": {
+      "KNOWLEDGE": 27,
+      "EXECUTION": 60,
+      "OWNERSHIP": 33,
+      "ADAPTABILITY": 60
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 0,
+    "question_id": "q_bb822fa113",
+    "claim_id": "cl_19d2e2",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the team, what did you look at first?",
+    "answer_text": "I had a team of 45 agents and we always hit our numbers. Team management is really about leadership and communication.",
+    "e_before": 0,
+    "e_after": 3,
+    "delta_e": 3,
+    "dimension_growth": {
+      "EXECUTION": 8
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 1,
+    "question_id": "q_c9af29a9bf",
+    "claim_id": "cl_19d2e2",
+    "move": "OPERATIONAL",
+    "probe_level": "OPERATIONAL",
+    "question_text": "What interface boundary or handoff contract did you establish with that team?",
+    "answer_text": "We focused on quality and made sure standards were maintained at all times.",
+    "e_before": 3,
+    "e_after": 5,
+    "delta_e": 2,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 24
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 2,
+    "question_id": "q_a6829e7761",
+    "claim_id": "cl_82fee7",
+    "move": "FAILURE",
+    "probe_level": "INCIDENT",
+    "question_text": "Tell me about a time the % improvement did not go the way you expected. What happened?",
+    "answer_text": "We improved customer satisfaction significantly through better ways of working.",
+    "e_before": 0,
+    "e_after": 2,
+    "delta_e": 2,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 25
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 3,
+    "question_id": "q_a27aa6a08a",
+    "claim_id": "cl_82fee7",
+    "move": "INCIDENT",
+    "probe_level": "INCIDENT",
+    "question_text": "What specific constraint or operational bottleneck did the customer present?",
+    "answer_text": "The initiative was mainly run by our consulting partner and the head of operations. I attended the working group.",
+    "e_before": 2,
+    "e_after": 3,
+    "delta_e": 1,
+    "dimension_growth": {
+      "KNOWLEDGE": 14,
+      "EXECUTION": 25,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 4,
+    "question_id": "q_aced868c61",
+    "claim_id": "cl_cf3a24",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the team instead, with the same approach you used on the advanced process optimisation. Where would you start?",
+    "answer_text": "AHT improved because of process optimisation and overall efficiency gains.",
+    "e_before": 0,
+    "e_after": 1,
+    "delta_e": 1,
+    "dimension_growth": {
+      "KNOWLEDGE": 20,
+      "PROBLEM_SOLVING": 33,
+      "JUDGMENT": 13,
+      "ADAPTABILITY": 50
+    }
+  },
+  {
+    "session_id": "s_51a2ece4b9",
+    "candidate_name": "Rohit Verma",
+    "job_family": "bpo_operations",
+    "turn_index": 5,
+    "question_id": "q_1a2f4516b7",
+    "claim_id": "cl_cf3a24",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the advanced process optimisation, what did you look at first?",
+    "answer_text": "I'm not sure how it was calculated.",
+    "e_before": 1,
+    "e_after": 1,
+    "delta_e": 0,
+    "dimension_growth": {}
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 0,
+    "question_id": "q_8d0cb79692",
+    "claim_id": "cl_8aa4b5",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the first-run flow, what did you look at first?",
+    "answer_text": "Activation was 41% when I took it over and 63% two quarters later. We measured activation as the percentage of new signups completing their first project within seven days.",
+    "e_before": 0,
+    "e_after": 7,
+    "delta_e": 7,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 50
+    }
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 1,
+    "question_id": "q_f3174dccdb",
+    "claim_id": "cl_8aa4b5",
+    "move": "METRIC_DEFINITION",
+    "probe_level": "OUTCOME",
+    "question_text": "You mentioned activation. How was activation actually worked out \u2014 what counted and what did not?",
+    "answer_text": "Every Monday I reviewed the funnel drop-off step by step, then picked the single worst step for that week's build. We tracked each step's completion rate in the product analytics dashboard.",
+    "e_before": 7,
+    "e_after": 11,
+    "delta_e": 4,
+    "dimension_growth": {
+      "KNOWLEDGE": 47,
+      "EXECUTION": 50,
+      "PROBLEM_SOLVING": 33,
+      "OWNERSHIP": 17
+    }
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 2,
+    "question_id": "q_37650732dc",
+    "claim_id": "cl_1b31c3",
+    "move": "FAILURE",
+    "probe_level": "INCIDENT",
+    "question_text": "Tell me about a time the user interviews did not go the way you expected. What happened?",
+    "answer_text": "I ran 40 user interviews across three segments over six weeks. The top pain point was that people could not tell whether their import had actually worked.",
+    "e_before": 0,
+    "e_after": 5,
+    "delta_e": 5,
+    "dimension_growth": {
+      "EXECUTION": 22
+    }
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 3,
+    "question_id": "q_8569010be3",
+    "claim_id": "cl_1b31c3",
+    "move": "PERTURB",
+    "probe_level": "TRANSFER",
+    "question_text": "Suppose you had taken on the first-run flow instead, with the same approach you used on the user interviews. Where would you start?",
+    "answer_text": "First I recruited from the churned cohort rather than active users, then I ran every interview myself, and I tagged each transcript against the problem statement so we could count how often each pain point came up.",
+    "e_before": 5,
+    "e_after": 10,
+    "delta_e": 5,
+    "dimension_growth": {
+      "KNOWLEDGE": 13,
+      "EXECUTION": 26,
+      "OWNERSHIP": 17,
+      "ADAPTABILITY": 30
+    }
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 4,
+    "question_id": "q_b10f154913",
+    "claim_id": "cl_b73ff0",
+    "move": "PEOPLE",
+    "probe_level": "INCIDENT",
+    "question_text": "Who else was close to the experiments against a single north star metric, and what did they do when it went wrong?",
+    "answer_text": "We ran 18 experiments that year and shipped 5 of them. Significance was computed at 95% with a two-week minimum run, so a test that could not reach the sample size never started.",
+    "e_before": 0,
+    "e_after": 10,
+    "delta_e": 10,
+    "dimension_growth": {
+      "KNOWLEDGE": 27,
+      "EXECUTION": 72,
+      "ADAPTABILITY": 30
+    }
+  },
+  {
+    "session_id": "s_d7b7e3b8c6",
+    "candidate_name": "Maya Krishnan",
+    "job_family": "product",
+    "turn_index": 5,
+    "question_id": "q_3bb0ee700b",
+    "claim_id": "cl_b73ff0",
+    "move": "OPERATING_CONTEXT",
+    "probe_level": "OPERATIONAL",
+    "question_text": "When you were working on the experiments against a single north star metric, what did you look at first?",
+    "answer_text": "The hypothesis was that the second step was where people dropped, so we removed it entirely, and completion rose nine points.",
+    "e_before": 10,
+    "e_after": 14,
+    "delta_e": 4,
+    "dimension_growth": {
+      "KNOWLEDGE": 33,
+      "EXECUTION": 28,
+      "PROBLEM_SOLVING": 33,
+      "JUDGMENT": 13,
+      "ADAPTABILITY": 50
+    }
   }
 ]

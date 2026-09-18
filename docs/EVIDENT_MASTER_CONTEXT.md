@@ -613,3 +613,17 @@ Not a candidate database.
 Not a resume database.
 
 An evidence database.
+
+
+## Implementation Audits
+
+The following documents are considered implementation-reality references.
+
+They describe what is actually implemented in the codebase and may differ from the intended architecture.
+
+- docs/STATE_MACHINES.md
+- docs/ARCHITECTURE_LAYER_AUDIT.md
+
+When architectural discussions arise, consult these documents before proposing new features or refactors.
+
+If an audit conflicts with a design document, surface the conflict explicitly.
