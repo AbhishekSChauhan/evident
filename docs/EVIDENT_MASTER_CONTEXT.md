@@ -627,3 +627,7 @@ They describe what is actually implemented in the codebase and may differ from t
 When architectural discussions arise, consult these documents before proposing new features or refactors.
 
 If an audit conflicts with a design document, surface the conflict explicitly.
+
+The planner's objective is not to complete moves.
+
+The planner's objective is to maximize evidence gained per question.
