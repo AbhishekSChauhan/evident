@@ -53,6 +53,49 @@ incident_markers   Details only someone who was actually there would produce: a
 
 entities           Named systems, teams, processes, geographies, products.
 
+decisions          A choice they made AND why, when the answer states both
+                   halves. `choice` = what they picked, adopted, or DELIBERATELY RETAINED /
+                   OPTED NOT TO CHANGE (e.g., "did not change Redux Toolkit", "retained legacy auth").
+                   `reason` = why, in their words (e.g., "data flow pipeline was correct").
+                   Skip the whole item if the answer names a choice with no stated reason, or a reason
+                   with no stated choice — a decision signal needs both halves present.
+                   "I chose Redis because latency was critical" is a decision.
+                   "We did not change Redux because the pipeline was correct" is a decision.
+                   "We used synthetic data because production labels were sparse" is a decision.
+                   "We used Redis" without a stated reason is not a decision.
+
+constraints        A limitation that shaped the work, whatever the field: compliance,
+                   budget, data availability, latency, headcount, timeline, or
+                   infrastructure capacity (e.g., a payload limit, a rate limit, a
+                   deadline, a headcount cap). `limitation` = the short kind of
+                   constraint (compliance, data, budget, latency, timeline, headcount,
+                   infrastructure, other). `effect` = what it stopped them from doing
+                   or forced them to do instead, in their words.
+                   A personal approval-authority threshold — what they could decide
+                   alone versus what needed someone else's sign-off — is a `boundaries`
+                   signal, not a constraint, even when a number is attached to it.
+
+concept_explanations
+                   An explanation of a domain concept, mechanism, principle, or
+                   architecture that explains WHY it works or WHY it applies (e.g.,
+                   a feature-leakage explanation, how an index speeds lookups, why
+                   cache invalidation matters, what causes model drift). Not simple
+                   narration of actions — a sentence that only describes what was
+                   done, with no explanation of the underlying mechanism, belongs in
+                   `process_steps` or `causal_links` instead.
+                   `concept` = what they explained. `reasoning` = the explanation of why/how.
+
+boundaries         An explicit boundary of personal responsibility vs. team or
+                   manager scope — what was theirs to decide or do alone, and what
+                   required someone else's sign-off or escalation (e.g., "I could
+                   deploy but architecture approval required my manager", "I owned
+                   backend services but DevOps handled infra", "I could approve
+                   purchases up to a set limit, anything above needed director
+                   approval"). A boundary does not need a stated reason to count —
+                   unlike `decisions`, naming the split itself is sufficient.
+                   `scope_held` = what was theirs to decide/do.
+                   `scope_handed_off` = what went to others or required sign-off.
+
 facts              Durable facts, ONLY on these keys:
 $fact_key_menu
                    Use value_num for numbers, value_text for short text. Give
@@ -74,6 +117,13 @@ HARD RULES
   - Do not reward or penalise fluency, accent, grammar or confidence. A blunt
     two-line answer full of specifics is richer evidence than three polished
     paragraphs of generalities, and your extraction must reflect that.
+  - Do not classify how valuable, rare or important a signal is. That is
+    decided elsewhere, from which list an item ended up in — never by
+    anything you write about it.
+  - Do not estimate whether a category is now "established", "partial" or
+    "missing". You are shown ONE answer and have no view of what the
+    candidate said in earlier answers on this claim — that judgment belongs
+    to code that has seen the whole interview, not to you.
 
 Return ONLY JSON, no prose, no markdown fences, matching this schema:
 
@@ -85,6 +135,10 @@ Return ONLY JSON, no prose, no markdown fences, matching this schema:
   "metric_definitions": [{"metric": "string", "how_measured": "string or null", "quote": "string"}],
   "incident_markers": [{"detail": "string", "quote": "string"}],
   "entities": [{"entity": "string", "kind": "system|team|process|place|product|other", "quote": "string"}],
+  "decisions": [{"choice": "string", "reason": "string", "quote": "string"}],
+  "constraints": [{"limitation": "string", "effect": "string or null", "quote": "string"}],
+  "concept_explanations": [{"concept": "string", "reasoning": "string or null", "quote": "string"}],
+  "boundaries": [{"scope_held": "string", "scope_handed_off": "string or null", "quote": "string"}],
   "facts": [{"key": "string", "value_num": 0, "value_text": null, "unit": "string or null", "quote": "string"}],
   "summary": "string"
 }
