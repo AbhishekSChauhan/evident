@@ -1265,7 +1265,7 @@ MOVE_BRIEFS: dict[Move, tuple[str, str]] = {
 # what the person was allowed to decide.
 ARCHETYPE_LADDER: dict[Archetype, tuple[Move, ...]] = {
     Archetype.METRIC_MOVE: (
-        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB,
+        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB, Move.OWNERSHIP_BOUNDARY,
         Move.METRIC_DEFINITION, Move.EXCLUSION, Move.COHERENCE, Move.DEPENDENCY,
     ),
     Archetype.OWNERSHIP: (
@@ -1273,11 +1273,11 @@ ARCHETYPE_LADDER: dict[Archetype, tuple[Move, ...]] = {
         Move.OWNERSHIP_BOUNDARY, Move.AUTHORITY, Move.PEOPLE, Move.COHERENCE,
     ),
     Archetype.BUILD: (
-        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB,
+        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB, Move.OWNERSHIP_BOUNDARY,
         Move.DEPENDENCY, Move.EXCLUSION, Move.COHERENCE,
     ),
     Archetype.PROCESS: (
-        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB,
+        Move.OPERATING_CONTEXT, Move.FAILURE, Move.PERTURB, Move.OWNERSHIP_BOUNDARY,
         Move.AUTHORITY, Move.EXCLUSION, Move.COHERENCE,
     ),
     Archetype.VOLUME: (
@@ -1285,6 +1285,14 @@ ARCHETYPE_LADDER: dict[Archetype, tuple[Move, ...]] = {
         Move.AUTHORITY, Move.PEOPLE, Move.COHERENCE,
     ),
 }
+# Phase 2 ownership-availability fix: OWNERSHIP_BOUNDARY is added at ladder
+# position 4 (immediately after PERTURB) to METRIC_MOVE, BUILD, and PROCESS,
+# which previously never offered it at all — confirmed in
+# docs/V2_OWNERSHIP_IMPLEMENTATION_PLAN.md as the sole gate on this move.
+# VOLUME and OWNERSHIP are unchanged: VOLUME still opens its boundary-adjacent
+# content via AUTHORITY/PEOPLE per the design note above, and OWNERSHIP
+# already carried OWNERSHIP_BOUNDARY. PEOPLE is deliberately not added
+# anywhere by this change — see the implementation plan for why.
 
 
 # ---------------------------------------------------------------------------
