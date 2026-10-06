@@ -18,7 +18,7 @@ Each commit passes the full suite on its own (checked in a clean worktree per co
 | 5 | `36deac0` composite reporting | 569 |
 | 6 | `e95e5cc` job-fit crash fix | **576** |
 
-The pre-fix reference is `09ed76f` (545 tests with these commits absent).
+The pre-fix reference is `09ed76f` (**532** tests). Commit 1 adds 13 tests; the first commit's count of 545 is the sum, not the pre-fix figure.
 
 ## 2. Versions
 
@@ -97,7 +97,7 @@ audit's; read its §0 before comparing.
 
 ## 6. Not committed
 
-`docs/` still holds untracked audit and plan documents not cited by any commit
+Several documents cited above as sources (for example `SIGNAL_AGGREGATION_PREDICTION_VALIDATION.md`, `POST_FIX_ROI_REMEASUREMENT_RERUN.md`, `CLAIM_TYPE_ROI_VALIDATION_RERUN.md`) are still **untracked**, so this baseline's citations do not yet resolve in git. `docs/` still holds untracked audit and plan documents not cited by any commit
 (the remaining validation, re-measurement and methodology reports, plus
 `EVIDENT_PRD_1PAGER.md`). `docs/V2_OWNERSHIP_IMPLEMENTATION_PLAN_2.md` is **0 bytes**.
 Validation harness scripts live in the session scratchpad, not in the repo.
