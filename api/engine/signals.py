@@ -758,7 +758,12 @@ def score_claim(
             probed.update(PROBE_LEVEL_DIMENSIONS.get(level, ()))
 
     for dimension, entry in scores.items():
-        entry.probed = dimension in probed or entry.score > 0
+        # Phase 2A: `probed` reflects a genuine targeting act only. The prior
+        # `or entry.score > 0` clause credited "probed" from any incidental
+        # nonzero score, which is exactly the gap the docstring above already
+        # says this flag exists to avoid — see
+        # docs/V2_SCORING_BACKDOOR_FIX.md for the measured consumer trace.
+        entry.probed = dimension in probed
         if not entry.probed:
             entry.basis = "not probed"
     return scores
