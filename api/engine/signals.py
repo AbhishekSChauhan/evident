@@ -47,7 +47,14 @@ from api.taxonomy import family_vocabulary
 # `MOVE_DIMENSIONS` entry when one is on record, instead of always reading
 # `PROBE_LEVEL_DIMENSIONS` off the stored (many-to-one) probe_level. Same
 # stored signals, different `probed` flags for any forensic-path claim.
-RUBRIC_VERSION = "rub_2"
+#
+# rub_3 — `merge_signals()` now merges `decisions`, `constraints`,
+# `concept_explanations`, and `boundaries` (it previously handled only
+# eight of the twelve AnswerSignals buckets, silently dropping these four
+# before `score_claim` ever saw them — docs/SIGNAL_AGGREGATION_AUDIT.md).
+# Same stored per-answer signals, different merged input to every rubric,
+# for any claim where one of these four buckets was ever populated.
+RUBRIC_VERSION = "rub_3"
 
 # ---------------------------------------------------------------------------
 # which dimensions each probe level is designed to elicit
@@ -676,6 +683,14 @@ def merge_signals(answers: "Sequence[AnswerSignals]") -> AnswerSignals:
             add("incident_markers", im, _key(im.detail))
         for en in sig.entities:
             add("entities", en, _key(en.entity))
+        for de in sig.decisions:
+            add("decisions", de, _key(de.choice, de.reason))
+        for co in sig.constraints:
+            add("constraints", co, _key(co.limitation, co.effect))
+        for ce in sig.concept_explanations:
+            add("concept_explanations", ce, _key(ce.concept))
+        for bo in sig.boundaries:
+            add("boundaries", bo, _key(bo.scope_held, bo.scope_handed_off))
         for ft in sig.facts:
             add("facts", ft, _key(ft.key, ft.value_num, ft.value_text))
 
