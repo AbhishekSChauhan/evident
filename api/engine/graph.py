@@ -409,6 +409,8 @@ async def build_candidate_graph(
 
     weighted, coverage = scoring.weighted_evidence_score(scored_pairs, claim_weights)
     competence = scoring.competence_score(weighted, consistency_report.multiplier)
+    dimension_profile = scoring.candidate_dimension_profile(profile_input)
+    composite_profile = scoring.composite_profile(dimension_profile)
 
     resume = (
         await db.execute(
@@ -476,7 +478,8 @@ async def build_candidate_graph(
         badge=scoring.badge_for(competence),
         role_coverage=coverage,
         consistency=consistency_report,
-        dimension_profile=scoring.candidate_dimension_profile(profile_input),
+        dimension_profile=dimension_profile,
+        composite_profile=composite_profile,
         claims=claim_graphs,
         computed_at=utcnow(),
     )

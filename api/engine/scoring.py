@@ -30,6 +30,9 @@ from api.engine.signals import PROBE_LEVEL_DIMENSIONS
 from api.schemas import (
     AnswerSignals,
     Badge,
+    CompositeCluster,
+    CompositeScore,
+    CoverageState,
     Dimension,
     DimensionScore,
     ProbeLevel,
@@ -295,6 +298,88 @@ def candidate_dimension_profile(
                 basis=f"across {len(per_claim)} claim(s)",
                 quotes=quotes[:3],
                 probed=probed_any,
+            )
+        )
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Phase 2B — composite reporting clusters (additive only)
+#
+# A reporting-layer view over the six existing DimensionScore entries, built
+# because docs/DIMENSION_VALIDITY_AUDIT.md found the six do not currently
+# behave as six independent reads: Knowledge and Execution move together
+# (shared process_steps), Problem Solving/Judgment/Adaptability move together
+# (shared causal_links), and Ownership is the one dimension shown distinct.
+# This function does not change how the six are computed, stored, or scored
+# — it only re-groups already-computed DimensionScore entries. Nothing here
+# is consumed by claim_score(), weighted_evidence_score(), competence_score(),
+# or rank_candidates()'s sort key.
+# ---------------------------------------------------------------------------
+
+COMPOSITE_CLUSTERS: dict[CompositeCluster, tuple[Dimension, ...]] = {
+    CompositeCluster.EXECUTION_KNOWLEDGE: (Dimension.KNOWLEDGE, Dimension.EXECUTION),
+    CompositeCluster.REASONING: (
+        Dimension.PROBLEM_SOLVING, Dimension.JUDGMENT, Dimension.ADAPTABILITY,
+    ),
+    CompositeCluster.OWNERSHIP: (Dimension.OWNERSHIP,),
+}
+
+COMPOSITE_LABELS: dict[CompositeCluster, str] = {
+    CompositeCluster.EXECUTION_KNOWLEDGE: "Execution & Knowledge",
+    CompositeCluster.REASONING: "Reasoning",
+    CompositeCluster.OWNERSHIP: "Ownership",
+}
+
+
+def composite_profile(dimension_scores: Sequence[DimensionScore]) -> list[CompositeScore]:
+    """Group the six existing dimension reads into the three clusters.
+
+    Renormalises over PROBED members only — an unprobed member contributes
+    neither to the numerator nor the denominator, which is the fix
+    `claim_score()`'s own `total_weight` does not apply (see
+    docs/V2_SCORING_REPORTING_IMPLEMENTATION_PLAN.md §5.1). A cluster with
+    zero probed members reports `UNKNOWN` with `score=None` rather than a
+    numeric zero, so "never asked" and "asked and found nothing" cannot be
+    confused by whoever reads this field.
+    """
+    by_dimension = {d.dimension: d for d in dimension_scores}
+    out: list[CompositeScore] = []
+    for cluster, members in COMPOSITE_CLUSTERS.items():
+        probed_entries = [
+            by_dimension[d] for d in members
+            if d in by_dimension and by_dimension[d].probed
+        ]
+        quotes: list[str] = []
+        for d in members:
+            if d in by_dimension:
+                quotes.extend(by_dimension[d].quotes)
+
+        if not probed_entries:
+            out.append(
+                CompositeScore(
+                    cluster=cluster,
+                    label=COMPOSITE_LABELS[cluster],
+                    score=None,
+                    coverage_state=CoverageState.UNKNOWN,
+                    member_dimensions=list(members),
+                    quotes=quotes[:3],
+                )
+            )
+            continue
+
+        score = clamp100(sum(e.score for e in probed_entries) / len(probed_entries))
+        coverage_state = (
+            CoverageState.NOT_DEMONSTRATED if score == 0 else CoverageState.DEMONSTRATED
+        )
+        out.append(
+            CompositeScore(
+                cluster=cluster,
+                label=COMPOSITE_LABELS[cluster],
+                score=score,
+                coverage_state=coverage_state,
+                member_dimensions=list(members),
+                quotes=quotes[:3],
             )
         )
     return out

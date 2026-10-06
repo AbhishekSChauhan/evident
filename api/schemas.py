@@ -66,6 +66,36 @@ class Dimension(str, Enum):
     ADAPTABILITY = "ADAPTABILITY"              # transferring knowledge to new scenario
 
 
+class CompositeCluster(str, Enum):
+    """Phase 2B — the three empirically-distinguishable reads over the six
+    raw dimensions (docs/DIMENSION_VALIDITY_AUDIT.md: Knowledge+Execution
+    move together; Problem Solving+Judgment+Adaptability move together;
+    Ownership is the one dimension shown statistically distinct). The six
+    raw dimensions are not removed or recomputed — this is a reporting-layer
+    view over them, additive only."""
+
+    EXECUTION_KNOWLEDGE = "EXECUTION_KNOWLEDGE"
+    REASONING = "REASONING"
+    OWNERSHIP = "OWNERSHIP"
+
+
+class CoverageState(str, Enum):
+    """Unknown vs. Not Demonstrated, kept as two distinct states rather than
+    collapsing both to a bare zero (docs/SCORING_SEMANTICS_AUDIT.md §3).
+
+    `DECLINED` is deliberately not a member here: distinguishing "the
+    candidate explicitly passed" from "probed and nothing resulted" needs a
+    per-answer non-answer flag that is not currently carried into the
+    claim-level DimensionScore this is built from. Adding it honestly would
+    mean new stored data, which this additive pass does not introduce — see
+    docs/V2_COMPOSITE_REPORTING.md.
+    """
+
+    UNKNOWN = "unknown"                  # no member dimension was ever probed
+    NOT_DEMONSTRATED = "not_demonstrated"  # probed, but nothing qualifying resulted
+    DEMONSTRATED = "demonstrated"         # probed, with real content
+
+
 class ProbeLevel(str, Enum):
     """ARTIFACT 3 — the question generation protocol.
 
@@ -301,6 +331,21 @@ class DimensionScore(BaseModel):
     probed: bool = False
 
 
+class CompositeScore(BaseModel):
+    """Phase 2B reporting layer. One of `CompositeCluster`'s three reads,
+    computed from the existing six `DimensionScore` entries — never stored
+    independently, never an input to any existing scoring arithmetic.
+    `score` is `None` exactly when `coverage_state` is `UNKNOWN`, so a
+    missing read is never rendered as a numeric zero."""
+
+    cluster: CompositeCluster
+    label: str
+    score: int | None = Field(default=None, ge=0, le=100)
+    coverage_state: CoverageState = CoverageState.UNKNOWN
+    member_dimensions: list[Dimension] = Field(default_factory=list)
+    quotes: list[str] = Field(default_factory=list)
+
+
 class EvidenceNode(BaseModel):
     """One dimension's reading from one answer — a row in the `evidence` table."""
 
@@ -460,6 +505,11 @@ class CandidateGraph(BaseModel):
     role_coverage: int = Field(default=0, ge=0, le=100)
     consistency: ConsistencyReport = Field(default_factory=ConsistencyReport)
     dimension_profile: list[DimensionScore] = Field(default_factory=list)
+    # Phase 2B — additive only. The six entries above are untouched and
+    # remain the system of record; this is a second, derived view over the
+    # same data, grouped into the three clusters docs/DIMENSION_VALIDITY_AUDIT.md
+    # found are the ones currently distinguishable.
+    composite_profile: list[CompositeScore] = Field(default_factory=list)
     claims: list[ClaimGraph] = Field(default_factory=list)
     computed_at: datetime | None = None
 
