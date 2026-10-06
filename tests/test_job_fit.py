@@ -303,3 +303,147 @@ def test_job_fit_api_rank_candidates(monkeypatch):
 
     assert rankings[1]["candidate_id"] == "c_b"
     assert rankings[1]["rank"] == 2
+
+
+# ---------------------------------------------------------------------------
+# Regression: an UNPROBED requested dimension must not crash job fit.
+#
+# job_fit.py read `dp.gate_open`, which DimensionScore has never had. It only
+# evaluated that attribute when `dp.probed` was False, so every fixture here
+# above (all dimensions probed=True) hid it. See docs/JOB_FIT_GATE_OPEN_DEFECT.md.
+# ---------------------------------------------------------------------------
+
+
+def _graph_with_unprobed(
+    unprobed: dict[Dimension, int], name: str = "Unprobed Candidate"
+) -> CandidateGraph:
+    """Every dimension probed at 80 except those in `unprobed`, which carry the
+    given (possibly nonzero) score with probed=False — the real shape of a
+    dimension a candidate volunteered evidence for without being asked."""
+    profile = [
+        DimensionScore(dimension=d, score=80, probed=True, basis="probed")
+        for d in Dimension
+        if d not in unprobed
+    ] + [
+        DimensionScore(dimension=d, score=s, probed=False, basis="not probed")
+        for d, s in unprobed.items()
+    ]
+    return CandidateGraph(
+        candidate=CandidateRef(id="c_unprobed", name=name),
+        job_family="software_engineering",
+        job_family_label="Software Engineering",
+        scored_for=None,
+        competence_score=70,
+        badge=Badge.partial,
+        probed_dimensions=6 - len(unprobed),
+        resume_score=70,
+        dimension_profile=profile,
+        claims=[],
+    )
+
+
+def test_unprobed_requested_dimension_is_missing_not_a_crash():
+    graph = _graph_with_unprobed({Dimension.OWNERSHIP: 0})
+    req = JobRequirement(name="Ownership", category="COMPETENCY", weight=1.0)
+
+    cov = verify_requirement_coverage(req, graph)
+
+    assert cov.status == CoverageStatus.MISSING
+    assert cov.coverage_score == 0
+
+
+def test_unprobed_dimension_with_volunteered_score_is_not_credited():
+    """An unprobed dimension contributes 0 here, the same as claim_score() and
+    the same as a dimension absent from the profile. Crediting an unprobed
+    score would re-open the `or score > 0` backdoor Phase 2A closed."""
+    graph = _graph_with_unprobed({Dimension.OWNERSHIP: 90})
+    req = JobRequirement(name="Ownership", category="COMPETENCY", weight=1.0)
+
+    cov = verify_requirement_coverage(req, graph)
+
+    assert cov.status == CoverageStatus.MISSING
+    assert cov.coverage_score == 0
+
+
+def test_probed_dimension_still_scores_exactly_as_before():
+    """The fix changes the unprobed branch only; a probed dimension keeps its
+    score, so existing ranking arithmetic is untouched."""
+    graph = _graph_with_unprobed({Dimension.ADAPTABILITY: 0})
+    req = JobRequirement(name="Judgment", category="COMPETENCY", weight=1.0)
+
+    cov = verify_requirement_coverage(req, graph)
+
+    assert cov.status == CoverageStatus.VERIFIED     # probed at 80 >= 60
+    assert cov.coverage_score == 100
+
+
+def test_multi_dimension_competency_mixes_probed_and_unprobed():
+    """'Leadership' maps to OWNERSHIP + JUDGMENT: (80 + 0) / 2 = 40 -> PARTIAL."""
+    graph = _graph_with_unprobed({Dimension.OWNERSHIP: 0})
+    req = JobRequirement(name="Leadership", category="COMPETENCY", weight=1.0)
+
+    cov = verify_requirement_coverage(req, graph)
+
+    assert cov.status == CoverageStatus.PARTIAL
+    assert cov.coverage_score == 65
+
+
+def test_calculate_job_fit_survives_unprobed_requested_dimension():
+    graph = _graph_with_unprobed({Dimension.OWNERSHIP: 18, Dimension.JUDGMENT: 0})
+    reqs = [
+        JobRequirement(name="Ownership", category="COMPETENCY", weight=0.5),
+        JobRequirement(name="Judgment", category="COMPETENCY", weight=0.5),
+    ]
+
+    fit = calculate_job_fit(graph, reqs)
+
+    assert fit.competence_fit == 0
+    assert set(fit.missing_requirements) == {"Ownership", "Judgment"}
+    assert any("Unprobed requirement: Ownership" in r for r in fit.risk_areas)
+
+
+_UNPROBED_REQS = [
+    {"name": "Ownership", "category": "COMPETENCY", "weight": 0.5},
+    {"name": "Judgment", "category": "COMPETENCY", "weight": 0.5},
+]
+
+
+def test_job_fit_api_returns_200_for_candidate_with_unprobed_dimension(monkeypatch):
+    graph = _graph_with_unprobed({Dimension.OWNERSHIP: 18})
+
+    async def _mock_build_graph(*args, **kwargs):
+        return graph
+
+    from api.routers import job_fit as job_fit_router
+    monkeypatch.setattr(job_fit_router, "build_candidate_graph", _mock_build_graph)
+
+    # raise_server_exceptions=False so the pre-fix failure is the HTTP 500 a
+    # recruiter would see, not a Python exception inside the test client.
+    res = TestClient(app, raise_server_exceptions=False).post(
+        "/api/job-fit",
+        json={"candidate_id": "c_unprobed", "requirements": _UNPROBED_REQS},
+    )
+
+    assert res.status_code == 200
+    assert "Ownership" in res.json()["missing_requirements"]
+
+
+def test_job_fit_rank_one_unprobed_candidate_does_not_break_the_batch(monkeypatch):
+    bad = _graph_with_unprobed({Dimension.OWNERSHIP: 18}, name="Bad")
+    good = _graph_with_unprobed({}, name="Good")
+
+    async def _mock_build_graph(db, cid, **kwargs):
+        return {"c_bad": bad, "c_good": good}.get(cid)
+
+    from api.routers import job_fit as job_fit_router
+    monkeypatch.setattr(job_fit_router, "build_candidate_graph", _mock_build_graph)
+
+    res = TestClient(app, raise_server_exceptions=False).post(
+        "/api/job-fit/rank",
+        json={"candidate_ids": ["c_bad", "c_good"], "requirements": _UNPROBED_REQS},
+    )
+
+    assert res.status_code == 200
+    rankings = res.json()["rankings"]
+    assert [r["candidate_id"] for r in rankings] == ["c_good", "c_bad"]
+    assert rankings[0]["job_fit_score"] > rankings[1]["job_fit_score"]

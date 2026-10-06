@@ -104,7 +104,11 @@ def verify_requirement_coverage(
             dim_names.append(dim.value)
             if dim in dim_profile_map:
                 dp = dim_profile_map[dim]
-                dim_scores.append(dp.score if dp.probed or dp.gate_open else 0)
+                # An unprobed dimension contributes 0, the same as claim_score()
+                # and the same as a dimension absent from the profile. This line
+                # used to read `dp.gate_open`, a field DimensionScore has never
+                # had; it only raised when `probed` was False.
+                dim_scores.append(dp.score if dp.probed else 0)
             else:
                 dim_scores.append(0)
 
